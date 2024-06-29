@@ -16,17 +16,11 @@ public class Program
 
         // Display the full scripture
          Console.WriteLine(reference.ToString());
-        Console.WriteLine(text);
-        Console.WriteLine(scripture.GetDisplayText());
+         Console.WriteLine(text);
+         Console.WriteLine(scripture.GetDisplayText());
 
         // Hide random words
         scripture.HideRandomWords(1);
         // Display the scripture with hidden words
-        Console.WriteLine("\nScripture with hidden words:");
-        Console.WriteLine(scripture.GetDisplayText());            
-
-        // Check if all words are hidden
-        bool allHidden = scripture.IsCompletelyHidden();
-        Console.WriteLine($"\nAll words hidden: {allHidden}");
     }
 }
