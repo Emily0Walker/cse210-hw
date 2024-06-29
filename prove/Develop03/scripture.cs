@@ -1,28 +1,24 @@
 public class Scripture
 {
-    public Reference Reference { get; }
-    public string Text { get; }
-    private List<Word> Words { get; }
+    public Reference
+    public List<Word> Words;
 
-    public Scripture(Reference reference, string text)
+    public Scripture(string Text)
     {
-        Reference = reference;
-        Text = text;
-        Words = new List<Word>();
+        
+        
+        foreach (var Word in Words);
 
-        foreach (var word in text.Split(' '))
-        {
-            Words.Add(new Word(word));
-        }
     }
+    
 
     public string GetDisplayText()
     {
         List<string> displayWords = new List<string>();
 
-        foreach (var word in Words)
+        foreach (var Word in Words)
         {
-            displayWords.Add(word.GetDisplayText());
+            displayWords.Add(Word.GetDisplayText());
         }
 
         return string.Join(" ", displayWords);
@@ -47,9 +43,9 @@ public class Scripture
 
     public bool IsCompletelyHidden()
     {
-        foreach (var word in Words)
+        foreach (var Word in Words)
         {
-            if (!word.IsHidden())
+            if (!Word.IsHidden())
             {
                 return false;
             }
