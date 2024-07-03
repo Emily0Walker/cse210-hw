@@ -1,54 +1,52 @@
 public class Scripture
 {
-    public Reference
-    public List<Word> Words;
-
-    public Scripture(string Text)
+    private Reference _reference;
+    private List<Word> _words = new List<Word>();
+    private Random _rng = new Random();
+    public Scripture (Reference reference, string text)
     {
+        _reference = reference;
+        string[] wordary = text.Split();
         
-        
-        foreach (var Word in Words);
-
-    }
-    
-
-    public string GetDisplayText()
-    {
-        List<string> displayWords = new List<string>();
-
-        foreach (var Word in Words)
+        foreach (string wordstr in wordary)
         {
-            displayWords.Add(Word.GetDisplayText());
-        }
-
-        return string.Join(" ", displayWords);
-    }
-
-    public void HideRandomWords(int count)
-    {
-        Random rand = new Random();
-        int hiddenWords = 0;
-
-        while (hiddenWords < count)
-        {
-            int index = rand.Next(Words.Count);
-
-            if (!Words[index].IsHidden())
-            {
-                Words[index].Hide();
-                hiddenWords++;
-            }
+            Word wordObj = new Word(wordstr);
+            _words.Add(wordObj);
         }
     }
 
-    public bool IsCompletelyHidden()
+
+    public void HideRandomWords( int toHide) 
     {
-        foreach (var Word in Words)
+        for (int _ = 0; _ < toHide; _++)
+        { 
+            int index = _rng.Next(_words.Count);
+            _words[index].Hide();
+        }
+    }
+
+    public string GetDisplayText()    
+    {   
+        string displaystr = "";
+        displaystr += _reference.GetDisplayText() + " - "; 
+       
+        foreach( Word word in _words)
         {
-            if (!Word.IsHidden())
+            displaystr += word.GetDisplayText() + " ";
+        }
+         return displaystr; // reference and scripture 
+        
+    }
+
+    public bool IsCompletlyHidden()
+    {
+        foreach (Word word in _words)
+        {
+            if (!word.IsHidden())
             {
                 return false;
             }
+            
         }
 
         return true;

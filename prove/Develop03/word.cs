@@ -1,12 +1,22 @@
+using System.Reflection.PortableExecutable;
+
 public class Word
 {
     private string _text;
     private bool _isHidden;
+    private string _hiddenText;
 
     public Word(string text)
     {
         _text = text;
         _isHidden = false;
+        _hiddenText = "";
+
+        foreach ( char character in text)
+        {
+            _hiddenText += "_";
+        }
+        
     }
 
     public void Hide()
@@ -26,6 +36,6 @@ public class Word
 
     public string GetDisplayText()
     {
-        return _isHidden ? "____" : _text;
+        return _isHidden ? _hiddenText : _text;
     }
 }
