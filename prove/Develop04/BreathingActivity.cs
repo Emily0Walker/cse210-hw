@@ -1,7 +1,7 @@
 public class breathingActivity
 {
 
-    public BreathingActivity(string name, string description, int duration)
+    public breathingActivity (name, description, duration)
        : base(name, description, duration)
     {
         name = "Breathing Activity";
@@ -11,8 +11,8 @@ public class breathingActivity
         string _duration = Console.ReadLine();
 
         // Parse the input duration to an integer
-        int _duration;
-        if (int.TryParse(_duration, out duration))
+        
+        if (int.TryParse(_duration, out _duration))
         {
             Console.WriteLine("Testing duration now");
 
@@ -25,16 +25,10 @@ public class breathingActivity
         {
             Console.WriteLine("Invalid input. Please enter a valid number.");
 
-
-
-
-
         }
 
-        public void run()
-        {
-            base.displayStartingMessage();
-        }
+        
 
 
     }
+}
