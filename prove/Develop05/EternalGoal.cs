@@ -8,7 +8,7 @@ public class EternalGoal
 
     public void RecordEvent()
     {
-
+        
     }
 
     public bool IsComplete()

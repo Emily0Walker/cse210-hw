@@ -5,7 +5,7 @@ public class GoalManager
 
     public GoalManager()
     {
-        
+
     }
 
     public void Start()
@@ -16,7 +16,7 @@ public class GoalManager
     public void DisplayPlayerInfo()
     {
 
-    }
+    } 
 
     public void ListGoalDetails()
     {
@@ -44,8 +44,6 @@ public class GoalManager
     }
 
 
+
 }
-
-
-
  

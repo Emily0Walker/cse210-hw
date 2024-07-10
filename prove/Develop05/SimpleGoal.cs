@@ -1,26 +1,28 @@
-public class SimpleGoal
+public class SimpleGoal : Goal
 {
-    
-        public bool _IsComplete;
+    public bool _IsComplete;
 
-        public SimpleGoal()
-        {
+    public SimpleGoal(string name, string description, int arg1, int arg2)
+        : base(name, description)
+    {
+      
+    }
 
-        }
+    public void RecordEvent()
+    {
+        // Implement the RecordEvent method logic here
+        // For example:
+        _IsComplete = true; // Set the goal as complete
+    }
 
-        public void RecordEvent()
-        {
+    public bool IsComplete()
+    {
+        return _IsComplete;
+    }
 
-        }
-
-        public bool IsComplete()
-        {
-            return false;
-        }
-
-        public string GetStringRepresentation()
-        {
-            return"";
-        }
-
+    public string GetStringRepresentation()
+    {
+        // Implement a meaningful string representation
+        return $"{Name}: {Description} (Complete: {_IsComplete})";
+    }
 }
