@@ -10,9 +10,8 @@ public class SimpleGoal : Goal
 
     public void RecordEvent()
     {
-        // Implement the RecordEvent method logic here
-        // For example:
-        _IsComplete = true; // Set the goal as complete
+        // save in csv ot txt file
+        _IsComplete = true; 
     }
 
     public bool IsComplete()
@@ -22,7 +21,7 @@ public class SimpleGoal : Goal
 
     public string GetStringRepresentation()
     {
-        // Implement a meaningful string representation
-        return $"{Name}: {Description} (Complete: {_IsComplete})";
+       
+        return $"{name}: {description} Complete: {_IsComplete}"
     }
 }

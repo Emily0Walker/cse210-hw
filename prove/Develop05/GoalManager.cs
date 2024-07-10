@@ -1,49 +1,18 @@
 public class GoalManager
 {
-    private List<Goal> _goals;
-    private int _score;
+    public string Name;
+    public string Description;
+    public int Points; 
+    public bool IsComplete;
 
-    public GoalManager()
+    public virtual void RecordEvent()
     {
-
+        IsComplete = true;
     }
 
-    public void Start()
+    public virtual string GetStringRepresentation()
     {
-
+        return $"{Name}|{Description}|{Points}|{IsComplete}";
     }
-
-    public void DisplayPlayerInfo()
-    {
-
-    } 
-
-    public void ListGoalDetails()
-    {
-
-    }
-
-    public void CreateGoal()
-    {
-
-    }
-
-    public void RecordEvent()
-    {
-
-    }
-
-    public void SaveGoals()
-    {
-
-    }
-    
-    public void LoadGoals()
-    {
-        
-    }
-
-
-
 }
- 
+
