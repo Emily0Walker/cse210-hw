@@ -46,6 +46,37 @@ class Program
             }
         }
     }
-}  
 
-  
+    static void CreateGoal(GoalManager goalManager)
+    {
+        Console.WriteLine("Select goal type: ");
+        Console.WriteLine("1. SimpleGoal");
+        Console.WriteLine("2. EternalGoal");
+        Console.Write("Enter choice: ");
+        string goalType = Console.ReadLine();
+
+        Console.Write("Enter goal name: ");
+        string name = Console.ReadLine();
+        Console.Write("Enter goal description: ");
+        string description = Console.ReadLine();
+        
+        if (goalType == "1")
+        {
+            Goal goal = new SimpleGoal(name, description);
+            goalManager.AddGoal(goal);
+            Console.WriteLine("SimpleGoal created successfully.");
+        }
+        else if (goalType == "2")
+        {
+            Console.Write("Enter goal points: ");
+            int points = int.Parse(Console.ReadLine());
+            //Goal goal = new
+            //GoalManager
+           // Console.WriteLine("EternalGoal created successfully.");
+        }
+        else
+        {
+            Console.WriteLine("Invalid goal type.");
+        }
+    }
+}

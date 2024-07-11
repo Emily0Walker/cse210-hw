@@ -1,18 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+
 public class GoalManager
 {
-    public string Name;
-    public string Description;
-    public int Points; 
-    public bool IsComplete;
+    private List<Goal> goals = new List<Goal>();
 
-    public virtual void RecordEvent()
+    public void AddGoal(Goal goal)
     {
-        IsComplete = true;
+        goals.Add(goal);
     }
 
-    public virtual string GetStringRepresentation()
+    public void ListGoalDetails()
     {
-        return $"{Name}|{Description}|{Points}|{IsComplete}";
+        foreach (var goal in goals)
+        {
+            Console.WriteLine(goal.GetStringRepresentation());
+        }
+    }
+
+    public void SaveGoals(string filePath)
+    {
+        using (StreamWriter writer = new StreamWriter(filePath))
+        {
+            foreach (var goal in goals)
+            {
+                writer.WriteLine(goal.GetStringRepresentation());
+            }
+        }
+    }
+
+    public void LoadGoals(string filePath)
+    {
+        if (File.Exists(filePath))
+        {
+           
+        }
     }
 }
-

@@ -1,17 +1,19 @@
-public class SimpleGoal : Goal
-{
-    public bool _IsComplete;
 
-    public SimpleGoal(string name, string description, int arg1, int arg2)
-        : base(name, description)
+    public class SimpleGoal : Goal
     {
-      
-    }
+        private bool _IsComplete;
 
-    public void RecordEvent()
-    {
-        // save in csv ot txt file
-        _IsComplete = true; 
+        public SimpleGoal(string name, string description)
+            : base(name, description)
+        {
+            _IsComplete = false;
+        }
+
+        public new void RecordEvent()
+        {
+            // save in csv or txt file
+            _IsComplete = true;
+        }
     }
 
     public bool IsComplete()
@@ -21,7 +23,6 @@ public class SimpleGoal : Goal
 
     public string GetStringRepresentation()
     {
-       
-        return $"{name}: {description} Complete: {_IsComplete}"
+        return $"{name}: {description} Complete: {_IsComplete}";
     }
 }
