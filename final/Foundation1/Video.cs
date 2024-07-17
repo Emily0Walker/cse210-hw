@@ -98,10 +98,11 @@ public class Video
     {
         foreach (var video in videoList)
         {
-            Console.WriteLine($"Title: {video.GetTitle()}, Author: {video.GetAuthor()}, Length: {video.GetVideoLength()} mins");
+            Console.WriteLine($"\n Title: {video.GetTitle()}, Author: {video.GetAuthor()}, Length: {video.GetVideoLength()} mins\n");
             foreach (var comment in video.GetComments())
             {
-                Console.WriteLine($"  Comment by {comment.GetName()}: {comment.GetText()}");
+                Console.WriteLine($"\n  Comment by {comment.GetName()}: {comment.GetText()}");
+                
             }
         }
     }
